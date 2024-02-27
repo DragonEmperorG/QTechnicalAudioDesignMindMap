@@ -1,0 +1,79 @@
+\documentclass{standalone}
+
+%% 字体
+% ctex – LATEX classes and packages for Chinese typesetting
+% https://ftp.jaist.ac.jp/pub/CTAN/language/chinese/ctex/ctex.pdf
+\usepackage[UTF8]{ctex}
+
+%% 字体 | 颜色
+% xcolor – Driver-independent color extensions for LATEX and pdfLATEX
+% https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/contrib/xcolor/xcolor.pdf
+\usepackage{xcolor}
+
+%% 符号 | 公式
+% amsmath – AMS mathematical facilities for LATEX
+% https://ftp.yz.yamagata-u.ac.jp/pub/CTAN/macros/latex/required/amsmath/amsldoc.pdf
+\usepackage{amsmath} % AMS 数学公式扩展
+
+%% 插图
+% pgf – Create PostScript and PDF graphics in TEX
+\usepackage{tikz} % 支持绘图
+% Mindmap Drawing Library
+\usetikzlibrary {mindmap}
+
+
+\begin{document} 
+	\begin{tikzpicture}
+		[root concept/.append style={concept color=red!50},
+		level 1 concept/.append style={sibling angle=180},
+		level 2 concept/.append style={sibling angle=60},
+		level 3 concept/.append style={sibling angle=120, level distance=3.0cm},
+		level 4 concept/.append style={sibling angle=30, level distance=3.0cm},
+		level 5 concept/.append style={sibling angle=30, level distance=3.0cm},
+		mindmap]
+		\node [concept] {Audio} [clockwise from=180]
+		child {
+		 	node [concept] {Child concept}
+		}
+		child {
+			node [concept] {Child1 concept} [clockwise from=60]
+			child {
+				node [concept] {音乐}			    		
+			}
+			child {
+				node [concept] {音效}	[clockwise from=60]
+				child {
+					node [concept] {角色}			    		
+				}
+				child {
+					% 国防科学技术工业委员会、中国人民解放军总装备部关于印发《军品出口管理清单》的通知
+					% http://chinadefense.sastind.gov.cn/n6759542/c6811691/content.html
+					node [concept, text width=2.1cm] (ww) {武器装备\\Weapon Equipment} [clockwise from=60]
+					child {
+						node [concept] {轻武器}
+						child {
+							node [concept] {枪械}
+							node [concept] {榴弹武器}
+							node [concept] {冷兵器}
+							node [concept] {特种装备}
+						}
+					}
+					child {
+						node [concept] {装甲车辆}
+					}
+					child {
+						node [concept] {航空飞行器}
+					}
+					child {
+						node [concept] {舰船}
+					}
+				}
+			}
+			child {
+				node [concept] {语音}			    		
+			}
+		};
+		
+
+	\end{tikzpicture}
+\end{document}
